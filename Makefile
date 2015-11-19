@@ -5,18 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/11/19 11:54:47 by mbourdel          #+#    #+#              #
-#    Updated: 2015/11/19 12:03:11 by mbourdel         ###   ########.fr        #
+#    Created: 2015/11/19 14:05:23 by mbourdel          #+#    #+#              #
+#    Updated: 2015/11/19 14:35:20 by mbourdel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
-SRC = 
+SRC = fractol.c \
+	  arg_error.c
 
 OBJ = $(SRC:.c=.o)
 
-LBFT_PATH = ./libft/
+LIBFT_PATH = ./libft/
 
 MLX = maclibx/libmlx.a -framework OpenGL -framework AppKit
 
@@ -28,17 +29,33 @@ $(NAME):
 	@cd $(LIBFT_PATH); $(MAKE) -f Makefile
 	@cd ./maclibx/; $(MAKE) -f Makefile
 	@gcc $(FLAG) $(SRC) -o $(NAME) $(LIBFT_PATH)libft.a $(MLX)
+	@echo "[================]"
+	@echo "|     succes !   |"
+	@echo "|     fractol    |"
+	@echo "|  was summoned  |"
+	@echo "[================]"
 
 clean:
 	@rm -rf $(OBJ)
+	@echo "[================]"
+	@echo "|     succes !   |"
+	@echo "|     XXXXX.o    |"
+	@echo "|  was destroyed |"
+	@echo "[================]"
 
 fclean: clean
 	@rm -rf $(NAME)
+	@echo "[================]"
+	@echo "|     succes !   |"
+	@echo "|     fractol    |"
+	@echo "|  was destroyed |"
+	@echo "[================]"
 
 re: fclean all
 
 deslib:
 	@cd $(LIBFT_PATH); $(MAKE) fclean -f Makefile
+	@cd ./maclibx/; $(MAKE) clean -f Makefile
 
 total: deslib re
 
