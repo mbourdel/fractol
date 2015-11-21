@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/19 15:49:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/21 04:04:34 by mbourdel         ###   ########.fr       */
+/*   Created: 2015/11/20 20:21:59 by mbourdel          #+#    #+#             */
+/*   Updated: 2015/11/21 05:30:45 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static t_fract	ft_fract_mandel(t_fract fract, int x, int y)
+static t_fract	ft_fract_julia(t_fract fract, int x, int y, t_env *env)
 {
-	fract.c_r = (x / fract.xzoom) - 2.1;
-	fract.c_i = (y / fract.yzoom) - 1.2;
-	fract.z_r = 0;
-	fract.z_i = 0;
+	fract.c_r = 0.285 * env->swag;
+	fract.c_i = 0.01 * env->yolo;
+	fract.z_r = x / fract.xzoom - 1.5;
+	fract.z_i = y / fract.yzoom - 1.5;
 	return (fract);
 }
 
@@ -35,21 +35,21 @@ static void		ft_draw(t_env *env, int x, int y, int i)
 		ft_pixel_put_img(env, x, y, (i * 280 * 2 / IT_MAX));
 }
 
-void			ft_mandelbrot(t_env *env)
+void			ft_julia(t_env *env)
 {
 	t_fract		fract;
 
 	fract.x = 0;
-	fract = ft_fract_init(2, fract);
+	fract = ft_fract_init(1, fract);
 	while (fract.x < X_SIZE)
 	{
 		fract.y = 0;
 		while (fract.y < Y_SIZE)
 		{
-			fract = ft_fract_mandel(fract, fract.x, fract.y);
+			fract = ft_fract_julia(fract, fract.x, fract.y, env);
 			fract.i = 0;
 			while ((((fract.z_r * fract.z_r) + (fract.z_i * fract.z_i)) < 4)
-					&& (fract.i < IT_MAX))
+				&& (fract.i < IT_MAX))
 			{
 				fract.tmp = fract.z_r;
 				fract.z_r = ((fract.z_r * fract.z_r) - (fract.z_i * fract.z_i)

@@ -6,14 +6,21 @@
 #    By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/19 14:05:23 by mbourdel          #+#    #+#              #
-#    Updated: 2015/11/19 14:35:20 by mbourdel         ###   ########.fr        #
+#    Updated: 2015/11/21 06:15:46 by mbourdel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 SRC = fractol.c \
-	  arg_error.c
+	  arg_error.c \
+	  arg_select.c \
+	  fract_init.c \
+	  fractal.c \
+	  mandelbrot.c \
+	  julia.c \
+	  pixel_put_img.c \
+	  mouse.c
 
 OBJ = $(SRC:.c=.o)
 
