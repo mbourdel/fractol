@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/21 05:49:39 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/21 06:17:06 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/11/30 19:47:08 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ int			mouse(int x, int y, t_env *env)
 		return (1);
 	if (x != x_start)
 	{
-		env->swag = env->swag + (0.0001 * (x - x_start));
+		if (env->tata == 1)
+			env->swag = env->swag + (0.0001 * (x - x_start));
 		x_start = x;
 	}
 	if (y != y_start)
 	{
-		env->yolo = env->yolo + (0.002 * (y - y_start));
+		if (env->tata == 1)
+			env->yolo = env->yolo + (0.002 * (y - y_start));
 		y_start = y;
 	}
 	expose_hook(env);

@@ -6,7 +6,7 @@
 #    By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/19 14:05:23 by mbourdel          #+#    #+#              #
-#    Updated: 2015/11/21 06:15:46 by mbourdel         ###   ########.fr        #
+#    Updated: 2015/11/30 17:20:07 by mbourdel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC = fractol.c \
 	  fractal.c \
 	  mandelbrot.c \
 	  julia.c \
+	  explore.c \
 	  pixel_put_img.c \
 	  mouse.c
 

@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:08:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/21 06:59:59 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/11/30 19:58:26 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,37 @@
 
 # define FRAC_1 "julia"
 # define FRAC_2 "mandelbrot"
-# define FRAC_3 "burningship"
+# define FRAC_3 "explore"
 # define ESC 53
 # define SPACE 49
 # define PG_UP 116
 # define PG_DW 121
 # define RIGHT 124
 # define LEFT 123
+# define END 119
 # define UP 126
 # define DW 125
+# define ONE 18
+# define TWO 19
+# define THREE 20
 # define SCROLL_DW 4
 # define SCROLL_UP 5
-# define X_SIZE 2000
-# define Y_SIZE 1200
+# define X_SIZE 800
+# define Y_SIZE 600
 # define IT_MUX 42
 
 # define IT_MAX (IT_MUX + env->itbonus)
 
 # include "mlx.h"
 # include "./libft/libft.h"
+
+typedef struct s_cursor	t_cursor;
+struct					s_cursor
+{
+	char				zoom;
+	int					x;
+	int					y;
+};
 
 typedef struct s_env	t_env;
 struct					s_env
@@ -46,10 +58,14 @@ struct					s_env
 	int					bpp;
 	int					size_line;
 	int					endian;
+	char				tata;
 	char				toto;
 	int					itbonus;
 	float				yolo;
 	float				swag;
+	float				movx;
+	float				movy;
+	float				zoom;
 };
 
 typedef struct s_fract	t_fract;
@@ -72,7 +88,7 @@ char					ft_arg_select(char *str);
 void					ft_fractal(char c);
 void					ft_julia(t_env *env);
 void					ft_mandelbrot(t_env *env);
-//void					ft_burningship(t_env *env);
+void					ft_explore(t_env *env);
 t_fract					ft_fract_init(char c, t_fract fract);
 void					ft_pixel_put_img(t_env *env,
 							int x, int y, unsigned int color);

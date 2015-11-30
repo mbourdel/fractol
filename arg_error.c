@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:17:05 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/19 15:23:02 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/11/30 17:21:31 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void		arg_invalid(void)
 {
 	ft_putstr("Error: Invalid argument\n");
-	ft_putstr("Arg list:    julia\tmandelbrot\tburningship\n");
+	ft_putstr("Arg list:    julia\tmandelbrot\texplore\n");
 	exit(0);
 }
 

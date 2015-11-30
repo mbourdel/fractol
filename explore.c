@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   explore.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/19 15:49:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/30 19:56:21 by mbourdel         ###   ########.fr       */
+/*   Created: 2015/11/30 17:17:12 by mbourdel          #+#    #+#             */
+/*   Updated: 2015/11/30 18:15:47 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static t_fract	ft_fract_mandel(t_fract fract, int x, int y, t_env *env)
+static t_fract	ft_fract_explore(t_fract fract, int x, int y)
 {
-	//fract.c_r = (x / fract.xzoom) - 2.1;
-	//fract.c_i = (y / fract.yzoom) - 1.2;
-	fract.c_r = 1 * (x - X_SIZE / 2) /
-		(0.5 * env->zoom * X_SIZE) + env->movx;
-	fract.c_i = (y - Y_SIZE / 2) /
-		(0.5 * env->zoom * Y_SIZE) + env->movy;
+	fract.c_r = (x / fract.xzoom) - 2.1;
+	fract.c_i = (y / fract.yzoom) - 1.2;
 	fract.z_r = 0;
 	fract.z_i = 0;
 	return (fract);
@@ -39,22 +35,29 @@ static void		ft_draw(t_env *env, int x, int y, int i)
 		ft_pixel_put_img(env, x, y, (i * 280 * 2 / IT_MAX));
 }
 
-void			ft_mandelbrot(t_env *env)
+void			ft_explore(t_env *env)
 {
 	t_fract		fract;
 
 	fract.x = 0;
-	fract = ft_fract_init(2, fract);
+	fract = ft_fract_init(3, fract);
 	while (fract.x < X_SIZE)
 	{
 		fract.y = 0;
 		while (fract.y < Y_SIZE)
 		{
-			fract = ft_fract_mandel(fract, fract.x, fract.y, env);
+			fract = ft_fract_explore(fract, fract.x, fract.y);
 			fract.i = 0;
-			while ((((fract.z_r * fract.z_r) + (fract.z_i * fract.z_i)) < 4)
+			while ((((fract.z_r * fract.z_r) + (fract.z_i * fract.z_i)) < 6)
 					&& (fract.i < IT_MAX))
 			{
+				if (((fract.i) % 2 == 0 && fract.i > 15)
+					|| (fract.i % 3 == 0 && fract.i <= 15))
+				{
+					fract.tmp = fract.z_r;
+					fract.z_r = fract.z_i;
+					fract.z_i = fract.tmp;
+				}
 				fract.tmp = fract.z_r;
 				fract.z_r = ((fract.z_r * fract.z_r) - (fract.z_i * fract.z_i)
 					+ fract.c_r);
