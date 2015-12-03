@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:08:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/12/03 16:34:59 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/03 17:17:13 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ struct					s_fract
 	int					y;
 	double				tmp;
 	int					i;
-	float				xzoom;
-	float				yzoom;
 	double				c_r;
 	double				c_i;
 	double				z_r;

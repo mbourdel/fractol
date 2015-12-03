@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 17:17:12 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/12/01 11:42:33 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/03 17:16:41 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static void		ft_draw(t_env *env, int x, int y, int i)
 	else if (i == IT_MAX)
 		ft_pixel_put_img(env, x, y, 0);
 	else if (i > 10)
-		ft_pixel_put_img(env, x, y, (i * 0xFFFFFF / IT_MAX));
+		ft_pixel_put_img(env, x, y, ((double)i * 0xFFFFFF / IT_MAX));
 	else
-		ft_pixel_put_img(env, x, y, (i * 280 * 2 / IT_MAX));
+		ft_pixel_put_img(env, x, y, ((double)i * 280 * 2 / IT_MAX));
 }
 
 void			ft_explore(t_env *env)
