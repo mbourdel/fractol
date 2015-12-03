@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:08:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/12/03 17:17:13 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/03 19:30:42 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@
 # define IT_MUX 42
 
 # define IT_MAX (IT_MUX + env->itbonus)
+# define PXL_DW_BOT (env->data[((y + 1) * env->size_line) + (x * env->bpp / 8 + 1)])
+# define PXL_DW_LT (env->data[((y + 1) * env->size_line) + ((x - 1) * env->bpp / 8) + 1])
+# define PXL_DW_RGT (env->data[((y + 1) * env->size_line) + ((x + 1) * env->bpp / 8) + 1])
 
+# include <time.h>
 # include "mlx.h"
 # include "./libft/libft.h"
 
@@ -91,6 +95,7 @@ void					ft_fractal(char c);
 void					ft_julia(t_env *env);
 void					ft_mandelbrot(t_env *env);
 void					ft_explore(t_env *env);
+void					ft_fougere(t_env *env);
 t_fract					ft_fract_init(char c, t_fract fract);
 void					ft_pixel_put_img(t_env *env,
 							int x, int y, unsigned int color);
