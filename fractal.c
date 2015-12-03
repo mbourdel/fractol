@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 15:31:30 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/30 19:58:02 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/03 16:28:36 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ static void		ft_toto(int k, t_env *env)
 		titi = 0;
 	}
 	else if (k == RIGHT)
-		env->yolo = env->yolo + 0.002;
+		env->movx = env->movx + (0.01 * (1 / env->zoom));
 	else if (k == LEFT)
-		env->yolo = env->yolo - 0.002;
+		env->movx = env->movx - (0.01 * (1 / env->zoom));
 	else if (k == UP)
-		env->swag = env->swag + 0.0001;
+		env->movy = env->movy - (0.01 * (1 / env->zoom));
 	else if (k == DW)
-		env->swag = env->swag - 0.0001;
+		env->movy = env->movy + (0.01 * (1 / env->zoom));
 }
 
 static void		ft_tutu(int k, t_env *env)
@@ -66,7 +66,7 @@ int				expose_hook(t_env *env)
 		ft_julia(env);
 	if (env->select == 2)
 		ft_mandelbrot(env);
-	if	(env->select == 3)
+	if (env->select == 3)
 		ft_explore(env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	return (0);
@@ -97,7 +97,7 @@ void			ft_fractal(char c)
 	env.swag = 1;
 	env.tata = 0;
 	env.zoom = 0.6;
-	env.movx = -0.5;
+	env.movx = 0;
 	env.movy = 0;
 	env.mlx = mlx_init();
 	env.win = mlx_new_window(env.mlx, X_SIZE, Y_SIZE, "Fract'ol");
@@ -108,6 +108,7 @@ void			ft_fractal(char c)
 	mlx_expose_hook(env.win, expose_hook, &env);
 	mlx_key_hook(env.win, key_hook, &env);
 	mlx_hook(env.win, 6, 1L << 6, &mouse, &env);
+	mlx_mouse_hook(env.win, mouse_hook, &env);
 	mlx_loop(env.mlx);
 	return ;
 }

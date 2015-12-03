@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/20 20:21:59 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/21 05:30:45 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/03 13:48:38 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ static t_fract	ft_fract_julia(t_fract fract, int x, int y, t_env *env)
 {
 	fract.c_r = 0.285 * env->swag;
 	fract.c_i = 0.01 * env->yolo;
-	fract.z_r = x / fract.xzoom - 1.5;
-	fract.z_i = y / fract.yzoom - 1.5;
+	fract.z_r = (x - X_SIZE / 2) /
+		(0.5 * env->zoom * X_SIZE) + env->movx;
+	fract.z_i = (y - Y_SIZE / 2) /
+		(0.5 * env->zoom * Y_SIZE) + env->movy;
 	return (fract);
 }
 

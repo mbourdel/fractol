@@ -6,16 +6,18 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 17:17:12 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/30 18:15:47 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/01 11:42:33 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static t_fract	ft_fract_explore(t_fract fract, int x, int y)
+static t_fract	ft_fract_explore(t_fract fract, int x, int y, t_env *env)
 {
-	fract.c_r = (x / fract.xzoom) - 2.1;
-	fract.c_i = (y / fract.yzoom) - 1.2;
+	fract.c_r = 1 * (x - X_SIZE / 2) /
+		(0.5 * env->zoom * X_SIZE) + env->movx;
+	fract.c_i = (y - Y_SIZE / 2) /
+		(0.5 * env->zoom * Y_SIZE) + env->movy;
 	fract.z_r = 0;
 	fract.z_i = 0;
 	return (fract);
@@ -46,7 +48,7 @@ void			ft_explore(t_env *env)
 		fract.y = 0;
 		while (fract.y < Y_SIZE)
 		{
-			fract = ft_fract_explore(fract, fract.x, fract.y);
+			fract = ft_fract_explore(fract, fract.x, fract.y, env);
 			fract.i = 0;
 			while ((((fract.z_r * fract.z_r) + (fract.z_i * fract.z_i)) < 6)
 					&& (fract.i < IT_MAX))

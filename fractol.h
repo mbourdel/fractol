@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:08:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/30 19:58:26 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/03 16:34:59 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define ONE 18
 # define TWO 19
 # define THREE 20
+# define LEFT_CLK 1
+# define RIGHT_CLK 2
 # define SCROLL_DW 4
 # define SCROLL_UP 5
 # define X_SIZE 800
@@ -63,9 +65,11 @@ struct					s_env
 	int					itbonus;
 	float				yolo;
 	float				swag;
-	float				movx;
-	float				movy;
-	float				zoom;
+	double				movx;
+	double				movy;
+	double				zoom;
+	double				x_pos;
+	double				y_pos;
 };
 
 typedef struct s_fract	t_fract;
@@ -73,14 +77,14 @@ struct					s_fract
 {
 	int					x;
 	int					y;
-	float				tmp;
+	double				tmp;
 	int					i;
 	float				xzoom;
 	float				yzoom;
-	float				c_r;
-	float				c_i;
-	float				z_r;
-	float				z_i;
+	double				c_r;
+	double				c_i;
+	double				z_r;
+	double				z_i;
 };
 
 void					ft_arg_error(int ac, char *str);
@@ -94,5 +98,6 @@ void					ft_pixel_put_img(t_env *env,
 							int x, int y, unsigned int color);
 int						expose_hook(t_env *env);
 int						mouse(int x, int y, t_env *env);
+int						mouse_hook(int button, int x, int y, t_env *env);
 
 #endif

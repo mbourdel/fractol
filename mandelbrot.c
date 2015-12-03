@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 15:49:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/30 19:56:21 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/03 17:09:02 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static t_fract	ft_fract_mandel(t_fract fract, int x, int y, t_env *env)
 {
-	//fract.c_r = (x / fract.xzoom) - 2.1;
-	//fract.c_i = (y / fract.yzoom) - 1.2;
 	fract.c_r = 1 * (x - X_SIZE / 2) /
 		(0.5 * env->zoom * X_SIZE) + env->movx;
 	fract.c_i = (y - Y_SIZE / 2) /
@@ -33,10 +31,10 @@ static void		ft_draw(t_env *env, int x, int y, int i)
 		ft_pixel_put_img(env, x, y, 0xFFFFFF);
 	else if (i == IT_MAX)
 		ft_pixel_put_img(env, x, y, 0);
-	else if (i > 10)
-		ft_pixel_put_img(env, x, y, (i * 0xFFFFFF / IT_MAX));
+	else if (i > (10 + (env->itbonus / 2)))
+		ft_pixel_put_img(env, x, y, ((double)i * 0xFFFFFF / IT_MAX));
 	else
-		ft_pixel_put_img(env, x, y, (i * 280 * 2 / IT_MAX));
+		ft_pixel_put_img(env, x, y, ((double)i * 280 * 2 / IT_MAX));
 }
 
 void			ft_mandelbrot(t_env *env)

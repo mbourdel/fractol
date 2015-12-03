@@ -6,7 +6,7 @@
 #    By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/19 14:05:23 by mbourdel          #+#    #+#              #
-#    Updated: 2015/11/30 17:20:07 by mbourdel         ###   ########.fr        #
+#    Updated: 2015/12/01 11:26:19 by mbourdel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC = fractol.c \
 	  julia.c \
 	  explore.c \
 	  pixel_put_img.c \
-	  mouse.c
+	  mouse.c \
+	  zoom.c
 
 OBJ = $(SRC:.c=.o)
 
