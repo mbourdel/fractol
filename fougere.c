@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 17:34:25 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/12/03 19:39:33 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/17 14:22:56 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_random_for_the_man()
 {
-	static int	tab[X_SIZE -5];
+	static int	tab[X_SIZE - 5];
 	static int	first = 0;
 	int			index;
 	int			ret;
@@ -43,7 +43,7 @@ void		ft_fougere(t_env *env)
 	i = 0;
 	x = 1;
 	y = 0;
-	color = 0x001000;
+	color = 0x00FF00;
 	ft_bzero(env->data, (X_SIZE * Y_SIZE * env->bpp / 8));
 	while (x < X_SIZE)
 		ft_pixel_put_img(env, x++, Y_SIZE - 1, 0x00FF00);
@@ -61,7 +61,12 @@ void		ft_fougere(t_env *env)
 			else
 				break ;
 		}
-		color >> 16 = (unsigned char)(255 - (unsigned char)(y * (1 / Y_SIZE)));
+		color = (unsigned char)(255 - (unsigned char)(10 * (y / 42)));
+		color = color * 255;
+		if (color > 0x00FF00)
+			ft_putchar('A');
+		if (color <= 255)
+			ft_putchar('B');
 		ft_pixel_put_img(env, x, y, color);
 	}
 }

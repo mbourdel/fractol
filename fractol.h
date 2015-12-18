@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:08:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/12/03 19:30:42 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/17 14:59:49 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define FRAC_1 "julia"
 # define FRAC_2 "mandelbrot"
 # define FRAC_3 "explore"
+# define FRAC_4 "flocon"
 # define ESC 53
 # define SPACE 49
 # define PG_UP 116
@@ -96,6 +97,7 @@ void					ft_julia(t_env *env);
 void					ft_mandelbrot(t_env *env);
 void					ft_explore(t_env *env);
 void					ft_fougere(t_env *env);
+void					ft_flocon(t_env *env);
 t_fract					ft_fract_init(char c, t_fract fract);
 void					ft_pixel_put_img(t_env *env,
 							int x, int y, unsigned int color);

@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/20 14:05:13 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/11/21 02:36:50 by mbourdel         ###   ########.fr       */
+/*   Updated: 2015/12/17 14:15:05 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void		ft_pixel_put_img(t_env *env, int x, int y, unsigned int color)
 			i++;
 		}
 		env->data[(y * env->size_line) +
-			(x * (env->bpp / 8))] = 127;
+			(x * (env->bpp / 8)) + i] = 0;
+		i--;
 		while (i >= 0)
 		{
 			env->data[(y * env->size_line) +
