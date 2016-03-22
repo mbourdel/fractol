@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/21 05:49:39 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/12/03 14:55:40 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/22 17:18:41 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int			mouse(int x, int y, t_env *env)
 	if (x != x_start)
 	{
 		if (env->tata == 1)
-			env->swag = env->swag + (0.0001 * (x - x_start));
+			env->swag = env->swag + (0.01 * (x - x_start));
 		x_start = x;
 		env->x_pos = ((double)x - X_SIZE / 2) * 2 / (X_SIZE * env->zoom) * -1;
 	}
 	if (y != y_start)
 	{
 		if (env->tata == 1)
-			env->yolo = env->yolo + (0.002 * (y - y_start));
+			env->yolo = env->yolo + (0.02 * (y - y_start));
 		y_start = y;
 		env->y_pos = ((double)y - Y_SIZE / 2) * 2 / (Y_SIZE * env->zoom) * -1;
 	}

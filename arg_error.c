@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:17:05 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/12/17 14:56:36 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/22 17:50:49 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static void		arg_invalid(void)
 {
 	ft_putstr("Error: Invalid argument\n");
-	ft_putstr("Arg list:    julia\tmandelbrot\texplore\tflocon\n");
+	ft_putstr("Arg list:\n--------\n- julia\n- mandelbrot\n");
+	ft_putstr("- burning\n- 3julia\n- 3mandelbrot\n");
 	exit(0);
 }
 
@@ -34,6 +35,8 @@ static void		av_error(char *str)
 	else if (ft_strcmp(str, FRAC_3) == 0)
 		return ;
 	else if (ft_strcmp(str, FRAC_4) == 0)
+		return ;
+	else if (ft_strcmp(str, FRAC_5) == 0)
 		return ;
 	else
 		arg_invalid();

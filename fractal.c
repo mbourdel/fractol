@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 15:31:30 by mbourdel          #+#    #+#             */
-/*   Updated: 2015/12/17 14:59:08 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/22 17:49:51 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,11 @@ int				expose_hook(t_env *env)
 	if (env->select == 2)
 		ft_mandelbrot(env);
 	if (env->select == 3)
-		ft_fougere(env);
+		ft_burning(env);
 	if (env->select == 4)
-		ft_flocon(env);
+		ft_3julia(env);
+	if (env->select == 5)
+		ft_3mandelbrot(env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	return (0);
 }

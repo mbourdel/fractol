@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   julia3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbourdel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/20 20:21:59 by mbourdel          #+#    #+#             */
-/*   Updated: 2016/03/22 18:44:08 by mbourdel         ###   ########.fr       */
+/*   Created: 2016/03/22 15:32:52 by mbourdel          #+#    #+#             */
+/*   Updated: 2016/03/22 17:35:56 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		ft_draw(t_env *env, int x, int y, int i)
 		ft_pixel_put_img(env, x, y, ((double)i * 280 * 2 / IT_MAX));
 }
 
-void			ft_julia(t_env *env)
+void			ft_3julia(t_env *env)
 {
 	t_fract		fract;
 
@@ -48,15 +48,16 @@ void			ft_julia(t_env *env)
 		while (fract.y < Y_SIZE)
 		{
 			fract = ft_fract_julia(fract, fract.x, fract.y, env);
-			fract.i = 0;
-			while ((((fract.z_r * fract.z_r) + (fract.z_i * fract.z_i)) < 4)
-				&& (fract.i < IT_MAX))
+			fract.i = -1;
+			while (++fract.i < IT_MAX &&
+				(((fract.z_r * fract.z_r) + (fract.z_i * fract.z_i)) < 4))
 			{
 				fract.tmp = fract.z_r;
-				fract.z_r = ((fract.z_r * fract.z_r) - (fract.z_i * fract.z_i)
-					+ fract.c_r);
-				fract.z_i = ((2 * fract.z_i * fract.tmp) + fract.c_i);
-				fract.i++;
+				fract.z_r = ((fract.z_r * fract.z_r * fract.z_r)
+						- 3.0 * (fract.z_r * fract.z_i * fract.z_i)
+						+ fract.c_r);
+				fract.z_i = ((3 * fract.z_i * fract.tmp * fract.tmp)
+						- (fract.z_i * fract.z_i * fract.z_i) + fract.c_i);
 			}
 			ft_draw(env, fract.x, fract.y, fract.i);
 			fract.y++;

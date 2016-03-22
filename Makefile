@@ -6,7 +6,7 @@
 #    By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/19 14:05:23 by mbourdel          #+#    #+#              #
-#    Updated: 2015/12/03 18:07:43 by mbourdel         ###   ########.fr        #
+#    Updated: 2016/03/22 18:46:01 by mbourdel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,10 @@ SRC = fractol.c \
 	  fract_init.c \
 	  fractal.c \
 	  mandelbrot.c \
+	  mandelbrot3.c \
+	  burning.c \
 	  julia.c \
-	  explore.c \
-	  fougere.c \
+	  julia3.c \
 	  pixel_put_img.c \
 	  mouse.c \
 	  zoom.c
@@ -29,7 +30,9 @@ OBJ = $(SRC:.c=.o)
 
 LIBFT_PATH = ./libft/
 
-MLX = maclibx/libmlx.a -framework OpenGL -framework AppKit
+MLX = minilibx_macos/libmlx.a -framework OpenGL -framework AppKit
+
+MLX_PATH = ./minilibx_macos/
 
 FLAG = -Wall -Werror -Wextra
 
@@ -37,7 +40,7 @@ all: $(NAME)
 
 $(NAME):
 	@cd $(LIBFT_PATH); $(MAKE) -f Makefile
-	@cd ./maclibx/; $(MAKE) -f Makefile
+	@cd $(MLX_PATH); $(MAKE) -f Makefile
 	@gcc $(FLAG) $(SRC) -o $(NAME) $(LIBFT_PATH)libft.a $(MLX)
 	@echo "[================]"
 	@echo "|     succes !   |"
@@ -65,7 +68,7 @@ re: fclean all
 
 deslib:
 	@cd $(LIBFT_PATH); $(MAKE) fclean -f Makefile
-	@cd ./maclibx/; $(MAKE) clean -f Makefile
+	@cd $(MLX_PATH); $(MAKE) clean -f Makefile
 
 total: deslib re
 
