@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:08:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2016/03/23 15:25:25 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/23 16:33:54 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define SCROLL_UP 5
 # define X_SIZE 800
 # define Y_SIZE 600
-# define IT_MUX 42
+# define IT_MUX 43
 
 # define IT_MAX (IT_MUX + env->itbonus)
 
