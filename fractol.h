@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:08:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2016/03/22 18:47:08 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/23 15:25:25 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ void					ft_3julia(t_env *env);
 void					ft_mandelbrot(t_env *env);
 void					ft_3mandelbrot(t_env *env);
 void					ft_burning(t_env *env);
-t_fract					ft_fract_init(char c, t_fract fract);
 void					ft_pixel_put_img(t_env *env,
 							int x, int y, unsigned int color);
 int						expose_hook(t_env *env);
