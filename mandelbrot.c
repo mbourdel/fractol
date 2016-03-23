@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 15:49:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2016/03/22 17:40:31 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/23 15:11:31 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void			ft_mandelbrot(t_env *env)
 	t_fract		fract;
 
 	fract.x = 0;
-	fract = ft_fract_init(2, fract);
 	while (fract.x < X_SIZE)
 	{
 		fract.y = 0;

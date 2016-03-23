@@ -6,7 +6,7 @@
 /*   By: mbourdel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 13:57:40 by mbourdel          #+#    #+#             */
-/*   Updated: 2016/03/22 15:09:50 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/23 15:11:03 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void			ft_burning(t_env *env)
 	t_fract		fract;
 
 	fract.x = 0;
-	fract = ft_fract_init(2, fract);
 	while (fract.x < X_SIZE)
 	{
 		fract.y = 0;
