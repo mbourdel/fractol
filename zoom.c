@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/21 06:51:59 by mbourdel          #+#    #+#             */
-/*   Updated: 2016/03/22 15:44:43 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/23 17:09:22 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			mouse_hook(int button, int x, int y, t_env *env)
 			(env->x_pos * ((env->zoom / 1.1) / env->zoom));
 		env->movy = env->movy +
 			(env->y_pos * ((env->zoom / 1.1) / env->zoom));
-		env->itbonus++;
+		env->itchange == 1 ? env->itbonus++ : (x = x + x - x);
 	}
 	if (button == RIGHT_CLK || button == SCROLL_DW)
 	{
@@ -34,7 +34,7 @@ int			mouse_hook(int button, int x, int y, t_env *env)
 			(env->x_pos * ((env->zoom * 1.1) / env->zoom));
 		env->movy = env->movy +
 			(env->y_pos * ((env->zoom * 1.1) / env->zoom));
-		env->itbonus--;
+		env->itchange == 1 ? env->itbonus-- : (x = x + x - x);
 	}
 	expose_hook(env);
 	return (x - y - x + y);

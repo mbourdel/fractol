@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 12:08:58 by mbourdel          #+#    #+#             */
-/*   Updated: 2016/03/23 16:33:54 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/23 16:56:54 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define FRAC_4 "3julia"
 # define FRAC_5 "3mandelbrot"
 # define ESC 53
+# define ENTER 36
 # define SPACE 49
 # define PG_UP 116
 # define PG_DW 121
@@ -65,6 +66,7 @@ struct					s_env
 	int					endian;
 	char				tata;
 	char				toto;
+	char				itchange;
 	int					itbonus;
 	float				yolo;
 	float				swag;

@@ -6,7 +6,7 @@
 /*   By: mbourdel <mbourdel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/19 15:31:30 by mbourdel          #+#    #+#             */
-/*   Updated: 2016/03/22 17:49:51 by mbourdel         ###   ########.fr       */
+/*   Updated: 2016/03/23 16:54:44 by mbourdel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ static void		ft_tutu(int k, t_env *env)
 		env->tata = 1;
 	else if (k == END && env->tata == 1)
 		env->tata = 0;
+	else if (k == ENTER && env->itchange == 0)
+		env->itchange = 1;
+	else if (k == ENTER && env->itchange == 1)
+		env->itchange = 0;
 }
 
 int				expose_hook(t_env *env)
@@ -97,6 +101,7 @@ void			ft_fractal(char c)
 	t_env		env;
 
 	env.itbonus = 0;
+	env.itchange = 0;
 	env.yolo = 1;
 	env.swag = 1;
 	env.tata = 0;
